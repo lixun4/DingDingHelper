@@ -1,9 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.1"
-
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+/*
     signingConfigs {
         release {
             try {
@@ -12,19 +12,19 @@ android {
                 keyAlias "key0"
                 keyPassword "admin1805.."
             } catch (ex) {
-                throw new InvalidUserDataException(ex.toString())
+//                throw new InvalidUserDataException(ex.toString())
             }
         }
 
-        /*debug {
+        debug {
             storeFile file("./keystore/debug.keystore")
-        }*/
-    }
+        }
+    }*/
 
     defaultConfig {
         applicationId "com.ucmap.dingdinghelper"
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
 
@@ -34,8 +34,13 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            signingConfig signingConfigs.release
+           // signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+          //  signingConfig signingConfigs.debug
         }
     }
 
